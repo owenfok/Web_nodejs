@@ -14,7 +14,6 @@ router.post('/register', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
 
-
 	if(!personInfo.email || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
 		res.send();
 	} else {
@@ -99,9 +98,22 @@ router.get('/profile', function (req, res, next) {
 });
 
 
+
+
 router.get('/shopping', function (req, res, next) {
-	return res.render('shopping.ejs');
+	console.log("shopping");
+	User.findOne({unique_id:req.session.userId},function(err,data){
+		console.log("shopping");
+		console.log(data);
+		if(!data){
+			res.redirect('/');
+		}else{
+			//console.log("found");
+			return res.render('shopping.ejs', {"name":data.username,"email":data.email});
+		}
+	});
 });
+
 
 
 router.get('/logout', function (req, res, next) {
