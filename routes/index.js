@@ -98,6 +98,12 @@ router.get('/profile', function (req, res, next) {
 	});
 });
 
+
+router.get('/shopping', function (req, res, next) {
+	return res.render('shopping.ejs');
+});
+
+
 router.get('/logout', function (req, res, next) {
 	console.log("logout")
 	if (req.session) {
