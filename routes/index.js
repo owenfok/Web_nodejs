@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
 router.get('/register', function (req, res, next) {
 	return res.render('register.ejs');
 });
+
 router.post('/register', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
