@@ -16,7 +16,7 @@ docker exec -it mongo mongo
 ## Running
   * npm install
   * npm start
-  * open browser at `http://localhost:3001`
+  * open browser at `http://localhost:8081`
 
 ## Docker
 docker build . -t 'image name'/node-web-app

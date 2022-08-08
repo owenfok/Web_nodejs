@@ -15,8 +15,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Favicons -->
-  <link href="/img/favicon.png" rel="icon">
-  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -24,11 +24,11 @@
 
   <!-- Vendor CSS Files -->
   <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
@@ -36,47 +36,6 @@
   
   <script async src="https://cse.google.com/cse.js?cx=62f45286d41254a19">
   </script>
-  <script>
-    const x = document.getElementById("demo");
-    
-    function getLocation() {
-      try {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } catch {
-        x.innerHTML = err;
-      }
-    }
-    
-    function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
-    }
-  </script>
-
-	<script type="text/javascript">
-  const settings = {
-	  "async": true,
-	  "crossDomain": true,
-	  "url": "https://google-translate1.p.rapidapi.com/language/translate/v2",
-	  "method": "POST",
-	  "headers": {
-		  "content-type": "application/x-www-form-urlencoded",
-		  "Accept-Encoding": "application/gzip",
-		  "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
-		  "X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
-	  },
-	  "data": {
-		  "q": "Hello, world!",
-		  "target": "en",
-		  "source": "tw"
-	  }
-  };
-s
-  $.ajax(settings).done(function (response) {
-  	console.log(response);
-  });
-</script>
-
 
 
 </head>
