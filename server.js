@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+let seedDB     = require("./product-seed"),
+    Product    = require("./models/product"),
+    Cart       = require("./models/cart");
 
 mongoose.connect("mongodb://localhost", {
   useNewUrlParser: true,
@@ -35,6 +38,7 @@ app.use(session({
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');	
+// seedDB();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -50,6 +54,31 @@ app.use('/img', express.static(path.resolve(__dirname, "assets/img")))
 app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 app.use('/scss', express.static(path.resolve(__dirname, "assets/scss")))
 app.use('/vendor', express.static(path.resolve(__dirname, "assets/vendor")))
+
+app.get("/", function(req, res){
+  Product.find({}, function(err, products){
+      if(err){
+          console.log(err);
+      }
+      else{
+          res.render("index", {products: products});
+      }
+  });
+});
+app.get("/add-to-cart/:id", function(req, res){
+  var productId = req.params.id;
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  Product.findById(productId, function(err, product){
+      if(err){
+          return res.redirect("/profile");
+      }
+      cart.add(product, product.id);
+      req.session.cart = cart;
+      console.log(req.session.cart);
+      res.redirect("/profile");
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

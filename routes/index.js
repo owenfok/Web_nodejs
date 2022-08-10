@@ -9,7 +9,6 @@ router.get('/', function (req, res, next) {
 router.get('/register', function (req, res, next) {
 	return res.render('register.ejs');
 });
-
 router.post('/register', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
@@ -62,7 +61,6 @@ router.post('/register', function(req, res, next) {
 router.get('/login', function (req, res, next) {
 	return res.render('login.ejs');
 });
-
 router.post('/login', function (req, res, next) {
 	//console.log(req.body);
 	User.findOne({username:req.body.username},function(err,data){
@@ -97,23 +95,19 @@ router.get('/profile', function (req, res, next) {
 	});
 });
 
-
-
-
-router.get('/shopping', function (req, res, next) {
-	console.log("shopping");
+router.get('/cart', function (req, res, next) {
+	console.log("cart");
 	User.findOne({unique_id:req.session.userId},function(err,data){
-		console.log("shopping");
+		console.log("cart");
 		console.log(data);
 		if(!data){
 			res.redirect('/');
 		}else{
 			//console.log("found");
-			return res.render('shopping.ejs', {"name":data.username,"email":data.email});
+			return res.render('cart.ejs', {"name":data.username,"email":data.email});
 		}
 	});
 });
-
 
 
 router.get('/logout', function (req, res, next) {
@@ -137,6 +131,8 @@ router.get('/forgetpass', function (req, res, next) {
 router.post('/forgetpass', function (req, res, next) {
 	//console.log('req.body');
 	//console.log(req.body);
+
+
 	User.findOne({email:req.body.email},function(err,data){
 		console.log(data);
 		if(!data){

@@ -33,6 +33,37 @@
        <!-- End Google Map -->
 
       </div>
+
+      <!-- Messenger 洽談附加程式 Code -->
+<div id="fb-root"></div>
+
+<!-- Your 洽談附加程式 code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "101651002655249");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v14.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
     </section><!-- End Contact Section -->
 
       <!-- ======= Footer ======= -->
@@ -41,7 +72,7 @@
       <div class="social-links">
         <a href="https://zh-hk.facebook.com/" class="facebook"  ><i class="bx bxl-facebook"></i></a>
         <a href="https://www.google.com/" class="google-plus"  ><i class="bx bxl-skype"></i></img>
-        <a href="https://www.linkedin.com/" class="linkedin"  > <i class="bx bxl-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/Owen-fok-462014195" class="linkedin"  > <i class="bx bxl-linkedin"></i></a>
       </div>
 
     </div>
@@ -51,36 +82,8 @@
 
 
   
-        <!-- Messenger 洽談附加程式 Code -->
-        <div id="fb-root"></div>
 
-        <!-- Your 洽談附加程式 code -->
-        <div id="fb-customer-chat" class="fb-customerchat">
-        </div>
-    
-        <script>
-          var chatbox = document.getElementById('fb-customer-chat');
-          chatbox.setAttribute("page_id", "101651002655249");
-          chatbox.setAttribute("attribution", "biz_inbox");
-        </script>
-    
-        <!-- Your SDK code -->
-        <script>
-          window.fbAsyncInit = function() {
-            FB.init({
-              xfbml            : true,
-              version          : 'v14.0'
-            });
-          };
-    
-          (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
-        </script>
+
   <!-- Vendor JS Files -->
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/glightbox/js/glightbox.min.js"></script>
@@ -90,6 +93,10 @@
 
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
 </body>
 
