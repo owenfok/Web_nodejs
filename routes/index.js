@@ -104,7 +104,10 @@ router.get('/cart', function (req, res, next) {
 			res.redirect('/');
 		}else{
 			//console.log("found");
-			return res.render('cart.ejs', {"name":data.username,"email":data.email});
+			return res.render('cart.ejs', {
+				"name":data.username,
+				"email":data.email
+			});
 		}
 	});
 });
@@ -131,8 +134,6 @@ router.get('/forgetpass', function (req, res, next) {
 router.post('/forgetpass', function (req, res, next) {
 	//console.log('req.body');
 	//console.log(req.body);
-
-
 	User.findOne({email:req.body.email},function(err,data){
 		console.log(data);
 		if(!data){

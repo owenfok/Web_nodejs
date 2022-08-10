@@ -17,22 +17,21 @@
         </div>
 
         <div class="row">
-
-          <div class="col-md-3 col-sm-6">
-            <div class="thumbnail border rounded">
-              <div class="col-lg-4 text-center order-1 order-lg-2">
-                <img src="img/specials-1.jpg" alt="" class="img-fluid">
-              </div>
-                <div class="caption">
-                    <h5><strong>Architecto ut aperiam autem id</strong></h5>
-
-                    <p class="offer">20% OFF and more</p>
-                </div>
-                <div class="clearfix">
-                    <div class="price pull-left">$ 1700</div>
-                    <a href="" class="btn btn-outline-success pull-right"><i class="fa fa-cart-plus"></i>delete</a>
+          <% products.forEach(function(cart){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail border rounded">
+                    <img class="img-responsive" src="<%= product.image %>">
+                    <div class="caption">
+                        <h5><strong><%= product.title %></strong></h5>
+                        <p class="offer"><%= product.offer %></p>
+                    </div>
+                    <div class="clearfix">
+                        <div class="price pull-left">Rs.<%= product.price %></div>
+                        <a href="/delete-to-cart/<%= product._id %>" class="btn btn-outline-success pull-right"><i class="fa fa-cart-plus"></i>delete</a>
+                    </div>
                 </div>
             </div>
+            <% }); %>
         </div>
 
 

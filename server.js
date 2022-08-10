@@ -80,6 +80,24 @@ app.get("/add-to-cart/:id", function(req, res){
   });
 });
 
+
+app.get("/delete-to-cart/:id", function(req, res){
+  var productId = req.params.id;
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  
+  Product.findById(productId, function(err, product){
+      if(err){
+          return res.redirect("/profile");
+      }
+      cart.delete(product, product.id);
+      req.session.cart = cart;
+      console.log(req.session.cart);
+      res.redirect("/profile");
+  });
+
+});
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('File Not Found');
